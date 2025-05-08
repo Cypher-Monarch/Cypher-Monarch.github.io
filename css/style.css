@@ -1,0 +1,212 @@
+/* Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #111;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #1f1f1f;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo a {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #00c8ff;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar .logo a:hover {
+  color: #fff;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #bbb;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #00c8ff;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #00c8ff, #5f5fff);
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  opacity: 0.8;
+  margin-top: 10px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* About Section */
+.about {
+  padding: 80px 20px;
+  background-color: #222;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #00c8ff;
+  letter-spacing: 1px;
+}
+
+.about p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* Projects Section */
+.projects {
+  padding: 80px 20px;
+  background-color: #111;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #00c8ff;
+  letter-spacing: 1px;
+}
+
+.project-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project-card {
+  background: #1f1f1f;
+  border-radius: 15px;
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card h3 {
+  font-size: 1.8rem;
+  color: #00c8ff;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.project-card p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #bbb;
+  opacity: 0.8;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 200, 255, 0.3);
+}
+
+.project-link {
+  text-decoration: none;
+  color: #00c8ff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #fff;
+}
+
+/* Footer Section */
+footer {
+  background-color: #1f1f1f;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: #bbb;
+  opacity: 0.8;
+}
+
+footer p {
+  opacity: 0.7;
+  letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+}
