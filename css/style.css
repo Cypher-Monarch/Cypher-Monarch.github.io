@@ -180,6 +180,52 @@ body {
   color: #fff;
 }
 
+/* Contact Section */
+.contact {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #0e0e0e;
+  color: #f0f0f0;
+  border-top: 2px solid #00c8ff;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #00c8ff;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.social-link:hover {
+  color: #f0f0f0;
+}
+
+.social-link:hover::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #00c8ff;
+  filter: blur(10px);
+  transition: 0.3s;
+  z-index: -1;
+}
+
 /* Footer Section */
 footer {
   background-color: #1f1f1f;
