@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "monospace", monospace;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
   color: #fff;
   font-size: 18px;
   line-height: 1.6;
-  font-family: "Roboto", sans-serif;
+  font-family: "monospace", monospace;
 }
 
 /* Navbar */
@@ -25,19 +25,24 @@ body {
   width: 100%;
   top: 0;
   z-index: 1000;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(43, 42, 37, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 10px
+  );
 }
 
 .navbar .logo a {
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
-  color: #00c8ff;
+  color: #d4af37;
   letter-spacing: 2px;
   transition: all 0.3s ease;
 }
 
 .navbar .logo a:hover {
-  color: #fff;
+  color: #ffd700;
 }
 
 .navbar ul {
@@ -57,12 +62,19 @@ body {
 }
 
 .navbar ul li a:hover {
-  color: #00c8ff;
+  color: #d4af37;
 }
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #00c8ff, #5f5fff);
+  background: repeating-linear-gradient(
+      45deg,
+      rgba(255, 215, 0, 0.1) 0px,
+      rgba(255, 215, 0, 0.1) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    linear-gradient(135deg, #d4af37, #ffd700);
   color: #fff;
   height: 100vh;
   display: flex;
@@ -77,14 +89,14 @@ body {
   font-size: 4rem;
   letter-spacing: 5px;
   margin-bottom: 20px;
-  animation: fadeIn 1.5s ease-in-out;
+  color: #3d3a3a;
 }
 
 .hero p {
   font-size: 1.5rem;
-  opacity: 0.8;
+  opacity: 0.9;
   margin-top: 10px;
-  animation: fadeIn 2s ease-in-out;
+  color: #3d3a3a;
 }
 
 /* Fade-In Animation */
@@ -107,8 +119,7 @@ body {
 .about h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #00c8ff;
-  letter-spacing: 1px;
+  color: #d4af37;
 }
 
 .about p {
@@ -129,8 +140,7 @@ body {
 .projects h2 {
   font-size: 2.5rem;
   margin-bottom: 40px;
-  color: #00c8ff;
-  letter-spacing: 1px;
+  color: #d4af37;
 }
 
 .project-cards {
@@ -152,7 +162,7 @@ body {
 
 .project-card h3 {
   font-size: 1.8rem;
-  color: #00c8ff;
+  color: #d4af37;
   margin-bottom: 10px;
   letter-spacing: 1px;
 }
@@ -166,18 +176,18 @@ body {
 
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 25px rgba(0, 200, 255, 0.3);
+  box-shadow: 0 15px 25px rgba(212, 175, 55, 0.3);
 }
 
 .project-link {
   text-decoration: none;
-  color: #00c8ff;
+  color: #d4af37;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .project-link:hover {
-  color: #fff;
+  color: #ffd700;
 }
 
 /* Contact Section */
@@ -186,12 +196,13 @@ body {
   text-align: center;
   background: #0e0e0e;
   color: #f0f0f0;
-  border-top: 2px solid #00c8ff;
+  border-top: 2px solid #d4af37;
 }
 
 .contact h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: #d4af37;
 }
 
 .social-links {
@@ -201,18 +212,19 @@ body {
   margin-top: 1rem;
 }
 
+/* Social Links - Gold Theme */
 .social-link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
   text-decoration: none;
-  color: #00c8ff;
+  color: #d4af37;
   transition: color 0.3s;
   position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .social-link:hover {
-  color: #f0f0f0;
+  color: #ffd700;
 }
 
 .social-link:hover::before {
@@ -220,7 +232,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #00c8ff;
+  background: #d4af37;
   filter: blur(10px);
   transition: 0.3s;
   z-index: -1;
@@ -232,8 +244,13 @@ footer {
   padding: 20px;
   text-align: center;
   font-size: 1rem;
-  color: #bbb;
+  color: #d4af37;
   opacity: 0.8;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(43, 42, 37, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 10px
+  );
 }
 
 footer p {
@@ -251,8 +268,7 @@ footer p {
   .hero h1 {
     font-size: 3rem;
   }
-
-  .hero p {
+  .hero .hero p {
     font-size: 1.2rem;
   }
 }
