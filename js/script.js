@@ -43,33 +43,33 @@ const style = document.createElement("style");
 style.innerHTML = `
   .glitch {
     position: relative;
-    color: #00c8ff;
+    color: #d4af37;
     animation: glitch 1s infinite;
   }
 
   @keyframes glitch {
     0% {
-      text-shadow: -1px -1px 0 #00c8ff, 1px 1px 0 #00c8ff;
+      text-shadow: -1px -1px 0 #ffd700, 1px 1px 0 #ffd700;
       transform: skew(0.1deg, -0.1deg);
     }
     20% {
-      text-shadow: 2px 2px 0 #00c8ff, -2px -2px 0 #00c8ff;
+      text-shadow: 2px 2px 0 #ffd700, -2px -2px 0 #ffd700;
       transform: skew(0.5deg, 0.5deg);
     }
     40% {
-      text-shadow: -1px 1px 0 #00c8ff, 1px -1px 0 #00c8ff;
+      text-shadow: -1px 1px 0 #ffd700, 1px -1px 0 #ffd700;
       transform: skew(-0.2deg, 0.2deg);
     }
     60% {
-      text-shadow: 1px 1px 0 #00c8ff, -1px -1px 0 #00c8ff;
+      text-shadow: 1px 1px 0 #ffd700, -1px -1px 0 #ffd700;
       transform: skew(0.3deg, -0.3deg);
     }
     80% {
-      text-shadow: -1px -1px 0 #00c8ff, 1px 1px 0 #00c8ff;
+      text-shadow: -1px -1px 0 #ffd700, 1px 1px 0 #ffd700;
       transform: skew(0.1deg, -0.1deg);
     }
     100% {
-      text-shadow: 2px 2px 0 #00c8ff, -2px -2px 0 #00c8ff;
+      text-shadow: 2px 2px 0 #ffd700, -2px -2px 0 #ffd700;
       transform: skew(0.5deg, 0.5deg);
     }
   }
