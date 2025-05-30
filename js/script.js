@@ -1,4 +1,3 @@
-// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -8,16 +7,13 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Navbar toggle for mobile screens (optional)
 const menuToggle = document.querySelector(".navbar ul");
 const navLinks = document.querySelectorAll(".navbar ul li a");
 
-// Add class for mobile menu visibility (dropdown-style)
 if (window.innerWidth < 768) {
   menuToggle.classList.add("mobile-menu");
 }
 
-// Toggle menu on click for small screens (mobile)
 const navbar = document.querySelector(".navbar");
 
 navbar.addEventListener("click", (e) => {
@@ -26,7 +22,6 @@ navbar.addEventListener("click", (e) => {
   }
 });
 
-// Optional: Add glitchy effect on hover for project links
 const projectLinks = document.querySelectorAll(".project-link");
 projectLinks.forEach((link) => {
   link.addEventListener("mouseover", () => {
@@ -38,7 +33,6 @@ projectLinks.forEach((link) => {
   });
 });
 
-// Optional: Glitch Effect CSS for project links
 const style = document.createElement("style");
 style.innerHTML = `
   .glitch {
@@ -76,7 +70,6 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-// Optional: Adding a typing effect for the hero tagline
 const tagline = document.querySelector(".hero-tagline");
 const text = tagline.textContent;
 tagline.textContent = "";
@@ -90,5 +83,3 @@ const typingEffect = setInterval(() => {
     clearInterval(typingEffect);
   }
 }, 100);
-
-// You can also use this for even smoother animations, like fading or sliding in elements
