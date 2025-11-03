@@ -67,7 +67,8 @@ body {
 
 /* Hero Section */
 .hero {
-  background: repeating-linear-gradient(
+  background:
+    repeating-linear-gradient(
       45deg,
       rgba(255, 215, 0, 0.1) 0px,
       rgba(255, 215, 0, 0.1) 10px,
@@ -156,7 +157,9 @@ body {
   padding: 30px;
   width: 300px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   cursor: pointer;
 }
 
@@ -242,13 +245,12 @@ body {
 .download-buttons {
   display: flex;
   gap: 20px;
-  align-items: center;   /* keeps them vertically centered */
+  align-items: center; /* keeps them vertically centered */
 }
 
 .download-btn {
-  flex: 0 0 auto;        /* prevents buttons from stretching */
+  flex: 0 0 auto; /* prevents buttons from stretching */
 }
-
 
 /* Contact Section */
 .contact {
