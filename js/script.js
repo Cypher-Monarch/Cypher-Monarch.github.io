@@ -1,25 +1,12 @@
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
-    });
+
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
   });
-});
-
-const menuToggle = document.querySelector(".navbar ul");
-const navLinks = document.querySelectorAll(".navbar ul li a");
-
-if (window.innerWidth < 768) {
-  menuToggle.classList.add("mobile-menu");
-}
-
-const navbar = document.querySelector(".navbar");
-
-navbar.addEventListener("click", (e) => {
-  if (e.target.tagName === "A" && window.innerWidth < 768) {
-    navbar.classList.toggle("active");
-  }
 });
 
 const projectLinks = document.querySelectorAll(".project-link");
@@ -71,15 +58,43 @@ style.innerHTML = `
 document.head.appendChild(style);
 
 const tagline = document.querySelector(".hero-tagline");
-const text = tagline.textContent;
-tagline.textContent = "";
+if (tagline) {
+  const text = tagline.textContent;
+  tagline.textContent = "";
 
-let i = 0;
-const typingEffect = setInterval(() => {
-  if (i < text.length) {
-    tagline.textContent += text.charAt(i);
-    i++;
-  } else {
-    clearInterval(typingEffect);
-  }
-}, 100);
+  let i = 0;
+  const typingEffect = setInterval(() => {
+    if (i < text.length) {
+      tagline.textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(typingEffect);
+    }
+  }, 100);
+}
+
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector(".nav-links");
+
+if (navToggle && navMenu) {
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+
+    const expanded = navMenu.classList.contains("open");
+    navToggle.setAttribute("aria-expanded", expanded);
+  });
+
+  navMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      navMenu.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
