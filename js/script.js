@@ -1,100 +1,61 @@
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
+// ===== NAVIGATION & INTERACTIONS =====
+(() => {
+  const navToggle = document.querySelector(".nav-toggle");
+  const navMenu = document.querySelector(".nav-links");
 
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-});
-
-const projectLinks = document.querySelectorAll(".project-link");
-projectLinks.forEach((link) => {
-  link.addEventListener("mouseover", () => {
-    link.classList.add("glitch");
-  });
-
-  link.addEventListener("mouseout", () => {
-    link.classList.remove("glitch");
-  });
-});
-
-const style = document.createElement("style");
-style.innerHTML = `
-  .glitch {
-    position: relative;
-    color: #d4af37;
-    animation: glitch 1s infinite;
-  }
-
-  @keyframes glitch {
-    0% {
-      text-shadow: -1px -1px 0 #ffd700, 1px 1px 0 #ffd700;
-      transform: skew(0.1deg, -0.1deg);
-    }
-    20% {
-      text-shadow: 2px 2px 0 #ffd700, -2px -2px 0 #ffd700;
-      transform: skew(0.5deg, 0.5deg);
-    }
-    40% {
-      text-shadow: -1px 1px 0 #ffd700, 1px -1px 0 #ffd700;
-      transform: skew(-0.2deg, 0.2deg);
-    }
-    60% {
-      text-shadow: 1px 1px 0 #ffd700, -1px -1px 0 #ffd700;
-      transform: skew(0.3deg, -0.3deg);
-    }
-    80% {
-      text-shadow: -1px -1px 0 #ffd700, 1px 1px 0 #ffd700;
-      transform: skew(0.1deg, -0.1deg);
-    }
-    100% {
-      text-shadow: 2px 2px 0 #ffd700, -2px -2px 0 #ffd700;
-      transform: skew(0.5deg, 0.5deg);
-    }
-  }
-`;
-document.head.appendChild(style);
-
-const tagline = document.querySelector(".hero-tagline");
-if (tagline) {
-  const text = tagline.textContent;
-  tagline.textContent = "";
-
-  let i = 0;
-  const typingEffect = setInterval(() => {
-    if (i < text.length) {
-      tagline.textContent += text.charAt(i);
-      i++;
-    } else {
-      clearInterval(typingEffect);
-    }
-  }, 100);
-}
-
-const navToggle = document.querySelector(".nav-toggle");
-const navMenu = document.querySelector(".nav-links");
-
-if (navToggle && navMenu) {
-  navToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("open");
-
-    const expanded = navMenu.classList.contains("open");
-    navToggle.setAttribute("aria-expanded", expanded);
-  });
-
-  navMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", "false");
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = navMenu.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      navToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
     });
-  });
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
-      navMenu.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", "false");
-    }
-  });
-}
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Open navigation");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {
+        navMenu.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Open navigation");
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        navMenu.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Open navigation");
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 680) {
+        navMenu.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  const animatedItems = document.querySelectorAll(".project-card, .download-row, .about-copy, .contact-links > a");
+  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.documentElement.classList.add("has-motion");
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    animatedItems.forEach((item) => {
+      item.classList.add("reveal");
+      observer.observe(item);
+    });
+  }
+})();
