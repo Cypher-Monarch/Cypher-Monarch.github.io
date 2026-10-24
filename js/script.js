@@ -7,7 +7,10 @@
     navToggle.addEventListener("click", () => {
       const isOpen = navMenu.classList.toggle("open");
       navToggle.setAttribute("aria-expanded", String(isOpen));
-      navToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+      navToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation",
+      );
     });
 
     navMenu.querySelectorAll("a").forEach((link) => {
@@ -19,7 +22,10 @@
     });
 
     document.addEventListener("click", (event) => {
-      if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {
+      if (
+        !navMenu.contains(event.target) &&
+        !navToggle.contains(event.target)
+      ) {
         navMenu.classList.remove("open");
         navToggle.setAttribute("aria-expanded", "false");
         navToggle.setAttribute("aria-label", "Open navigation");
@@ -42,17 +48,25 @@
     });
   }
 
-  const animatedItems = document.querySelectorAll(".project-card, .download-row, .about-copy, .contact-links > a");
-  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const animatedItems = document.querySelectorAll(
+    ".project-card, .download-row, .about-copy, .contact-links > a",
+  );
+  if (
+    "IntersectionObserver" in window &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
     document.documentElement.classList.add("has-motion");
-    const observer = new IntersectionObserver((entries, currentObserver) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          currentObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+    const observer = new IntersectionObserver(
+      (entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            currentObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 },
+    );
     animatedItems.forEach((item) => {
       item.classList.add("reveal");
       observer.observe(item);
